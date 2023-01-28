@@ -1,5 +1,5 @@
 design/
-
+.vscode/
 *__pycache__/
 *sim_build/
 *.xml
