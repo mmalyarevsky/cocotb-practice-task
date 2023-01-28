@@ -3,11 +3,11 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 
-PWD = $(shell pwd)/
+PWD = $(shell pwd)
 
-export PYTHONPATH := $(PWD)/../include:$(PYTHONPATH)
+export PYTHONPATH := $(PWD)/include:$(PYTHONPATH)
 
-VERILOG_SOURCES += $(PWD)../../design/scr1_pipe_ialu.sv
+VERILOG_SOURCES += $(PWD)/../design/scr1_pipe_ialu.sv
 TOPLEVEL = scr1_pipe_ialu
 
 MODULE = test
