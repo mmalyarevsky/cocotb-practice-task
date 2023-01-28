@@ -1,0 +1,6 @@
+design/
+
+*__pycache__/
+*sim_build/
+*.xml
+*.vcd
