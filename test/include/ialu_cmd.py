@@ -1,3 +1,6 @@
+"""
+Enums for available iALU commands
+"""
 from enum import Enum
 
 class Scr1IaluCmdSelE(Enum):
