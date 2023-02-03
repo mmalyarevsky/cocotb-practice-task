@@ -8,7 +8,8 @@ PWD = $(shell pwd)
 export PYTHONPATH := $(PWD)/include:$(PYTHONPATH)
 
 VERILOG_SOURCES += $(PWD)/../design/scr1_pipe_ialu.sv
-TOPLEVEL = scr1_pipe_ialu
+VERILOG_SOURCES += $(PWD)/tb.sv
+TOPLEVEL = tb
 
 MODULE = test
 

@@ -26,17 +26,17 @@ async def add_rand(dut):
     log.setLevel('INFO')
     # log.setLevel('DEBUG')
 
-    op1 = dut.exu2ialu_main_op1_i
-    op2 = dut.exu2ialu_main_op2_i
-    cmd = dut.exu2ialu_cmd_i
-    res = dut.ialu2exu_main_res_o
+    op1 = dut.op1
+    op2 = dut.op2
+    cmd = dut.cmd
+    main_res = dut.main_res
     cmd.value = Scr1IaluCmdSelE.SCR1_IALU_CMD_ADD.value
 
     for _ in range(TEST_ITER_COUNT):
         apply_rand_in(op1, op2)
         await sim_step
-        log.debug('%0x + %0x = %0x', op1.value, op2.value, res.value)
-        assert res.value == add_uint32_model(op1.value, op2.value)
+        log.debug('%0x + %0x = %0x', op1.value, op2.value, main_res.value)
+        assert main_res.value == add_uint32_model(op1.value, op2.value)
 
     raise TestSuccess
 
@@ -47,17 +47,17 @@ async def sub_rand(dut):
     log.setLevel('INFO')
     # log.setLevel('DEBUG')
 
-    op1 = dut.exu2ialu_main_op1_i
-    op2 = dut.exu2ialu_main_op2_i
-    cmd = dut.exu2ialu_cmd_i
-    res = dut.ialu2exu_main_res_o
+    op1 = dut.op1
+    op2 = dut.op2
+    cmd = dut.cmd
+    main_res = dut.main_res
     cmd.value = Scr1IaluCmdSelE.SCR1_IALU_CMD_SUB.value
 
     for _ in range(TEST_ITER_COUNT):
         apply_rand_in(op1, op2)
         await sim_step
-        log.debug('%0x - %0x = %0x', op1.value, op2.value, res.value)
-        assert res.value == sub_uint32_model(op1.value, op2.value)
+        log.debug('%0x - %0x = %0x', op1.value, op2.value, main_res.value)
+        assert main_res.value == sub_uint32_model(op1.value, op2.value)
 
     raise TestSuccess
 
@@ -68,10 +68,10 @@ async def sub_lt_rand(dut):
     log.setLevel('INFO')
     # log.setLevel('DEBUG')
 
-    op1 = dut.exu2ialu_main_op1_i
-    op2 = dut.exu2ialu_main_op2_i
-    cmd = dut.exu2ialu_cmd_i
-    cmp_res = dut.ialu2exu_main_res_o
+    op1 = dut.op1
+    op2 = dut.op2
+    cmd = dut.cmd
+    cmp_res = dut.cmp_res
     cmd.value = Scr1IaluCmdSelE.SCR1_IALU_CMD_SUB_LT.value
 
     for _ in range(TEST_ITER_COUNT):
@@ -89,10 +89,10 @@ async def sub_ltu_rand(dut):
     log.setLevel('INFO')
     # log.setLevel('DEBUG')
 
-    op1 = dut.exu2ialu_main_op1_i
-    op2 = dut.exu2ialu_main_op2_i
-    cmd = dut.exu2ialu_cmd_i
-    cmp_res = dut.ialu2exu_main_res_o
+    op1 = dut.op1
+    op2 = dut.op2
+    cmd = dut.cmd
+    cmp_res = dut.cmp_res
     cmd.value = Scr1IaluCmdSelE.SCR1_IALU_CMD_SUB_LTU.value
 
     for _ in range(TEST_ITER_COUNT):
